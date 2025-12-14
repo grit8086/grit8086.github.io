@@ -81,8 +81,7 @@ body {
 }
 
 /* Background overlay */
-body::before {
-  content: "";
+.bg {
   position: fixed;
   inset: 0;
   background: url("/img/wallpaper.png") center / contain no-repeat;
@@ -263,18 +262,11 @@ footer {
     padding: 1em;
   }
 
-  body::before {
-    content: "";
-    position: fixed;
-    pointer-events: none;
-    z-index: -1;
-    inset: 0;
-    background-size: cover;
-    background-position: center top;
-    opacity: var(--bg-overlay-opacity);
+  .background {
+    height: 100svh;
   }
 
-  .banner {
+   .banner {
     display: block;
     margin-bottom: 0.75rem;
   }

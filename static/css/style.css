@@ -256,44 +256,29 @@ footer {
    Mobile (≤ 768px)
 ========================= */
 @media (max-width: 768px) {
+  html {
+    font-size: clamp(16px, 4vw, 18px);
+  }
 
   body {
-    padding: 0.75em 0.5em;
-    line-height: 1.7;
+    padding: 1em;
   }
 
-  main,
-  header {
-    padding: 0 0.25rem;
+  ul li {
+    align-items: flex-start;
   }
 
-  p {
-    font-size: 0.95rem;
+  ul li::before {
+    margin-top: 0.35em;
   }
 
-  h1 { font-size: 1.35rem; }
-  h2 { font-size: 1.2rem; }
-  h3 { font-size: 1.1rem; }
+  .quote {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   pre {
-    font-size: 0.85rem;
-    max-height: 50vh;
-    overflow-x: auto;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  code {
-    font-size: 0.9rem;
-  }
-
-  .ascii {
-    transform: scale(0.75);
-  }
-
-  footer {
-    margin-top: 2rem;
-    position: relative;
+    padding: 0.5rem;
+    line-height: 1.4;
   }
 }
-

@@ -266,7 +266,7 @@ footer {
    Mobile (≤ 768px)
 ========================= */
 @media (max-width: 768px) {
-  .ascii {
+  .ascii, banner {
     display: none;
   }
 

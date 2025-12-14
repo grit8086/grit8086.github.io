@@ -186,6 +186,10 @@ pre {
   color: var(--purple);
 }
 
+.base-title::before {
+  content: none;
+}
+
 /* =========================
    Menu
 ========================= */
@@ -264,8 +268,8 @@ footer {
     display: none;
   }
 
-  .lntable {
-    font-size: 0.65rem;
+  .lnt {
+    font-size: 0.6rem;
   }
 
   main {

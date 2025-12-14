@@ -247,6 +247,10 @@ footer {
    Mobile
 ========================= */
 @media (max-width: 768px) {
+  main {
+    max-width: 90vw;
+  }
+
   html {
     font-size: clamp(13px, 1.5vw, 14px);
   }

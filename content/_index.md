@@ -1,5 +1,5 @@
 +++
-description = "research site and portfolio by azazel covering nerdy and silly experiments."
+description = "azazel's silly homepage."
 +++
 
 

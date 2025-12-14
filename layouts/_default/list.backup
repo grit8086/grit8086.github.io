@@ -1,10 +1,20 @@
 {{ define "main" }}
-  <h2>research</h2>
-  <ul>
-    {{ range .Pages }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
-    {{ end }}
-  </ul>
+
+<ul class="blogs">
+  {{ range sort .Pages "Date" "desc" }}
+    <li class="blog-item">
+      <a href="{{ .RelPermalink }}" class="blog-link">
+        {{ .Title }}
+      </a>
+      <small>
+        <span class="blog-date">
+          [ {{ .Date.Format "2006-01-02" }} ]
+        </span>
+      </small>
+    </li>
+  {{ end }}
+</ul>
+
 {{ end }}
+
+

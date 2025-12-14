@@ -1,4 +1,4 @@
 +++
 title = "research"
-description = "silly research and experiments conducted by azazel."
+description = "azazel's silly research, experiments, and yap."
 +++

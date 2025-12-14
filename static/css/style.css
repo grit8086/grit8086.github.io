@@ -78,6 +78,7 @@ body {
   padding: var(--pad-body) 0;
 
   position: relative;
+  padding-bottom: 10vh;
 }
 
 /* 
@@ -106,6 +107,7 @@ body::before {
   background-position: center center;
   background-size: cover;
   z-index: -1;
+  transform: translateZ(0);
 }
 
 /* =========================

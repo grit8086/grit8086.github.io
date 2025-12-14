@@ -23,3 +23,43 @@ Outside of infosec, I’m an advocate of self-improvement and mental health. Whe
 
 # contact
 GitHub: [jmp4zazel](https://github.com/jmp4zazel)
+
+# wall of credit
+I didn’t get here on my own. Everything I’ve learned so far is the result of people who took the time to help me, answer questions, challenge my thinking, and guide me through the rough parts of this field. I’m genuinely grateful for the patience, knowledge, and support they shared with me along the way.
+
+
+* @drpapv2
+* @cicadamikoto
+* @lattice23
+* @ghostwirez
+* @balejin
+* @0xA1ex
+* @fr0j
+* @gatari
+* @codextf2
+* @0xdeluks
+* @0xSolanaceae
+* @eversinc33
+* @ottersec
+* @kyleavery
+* @cbuwuu
+* @nathangolez
+* @ar33zy
+* @atypicalic
+* @entropykey
+* @iamavu
+* @iansecratario
+* @k4pla
+* @kohi_syd
+* @mauzy0x00
+* @r3nzsec
+* @red.wind
+* @red4mber
+* @seiferia
+* @sysgerm
+* @texas
+* @xrombar
+* @3lle
+
+
+

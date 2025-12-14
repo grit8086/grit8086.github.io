@@ -1,4 +1,4 @@
 +++
 title = "research"
-description: = "offensive security r&d, and a bit of every domain."
+description = "offensive security r&d, and a bit of every domain."
 +++

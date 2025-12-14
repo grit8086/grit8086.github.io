@@ -271,7 +271,7 @@ footer {
   }
 
   html {
-    font-size: clamp(16px, 4vw, 18px);
+    font-size: clamp(14px, 2.5vw, 16px);
   }
 
   body {

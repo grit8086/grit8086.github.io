@@ -7,6 +7,11 @@
   src: url("/fonts/unifont.woff") format("woff");
 }
 
+/* Font fallbacks */ 
+:root {
+  --font-ascii: "Unifont", "Lucida Console", "Courier New", monospace;
+  --font-body: "Unifont", system-ui, sans-serif;
+}
 
 /* =========================
    Oxocarbon - Tokens
@@ -41,7 +46,7 @@ html {
 body {
   background-color: var(--bg);
   position: relative;
-  font-family: "Unifont", system-ui, sans-serif;
+  font-family: var(--font-body)
   max-width: 720px;
   margin: 0 auto;
   padding: 1em 0;
@@ -91,6 +96,7 @@ header {
 }
 
 .ascii {
+  font-family: var(--font-ascii)
   font-size: 0.15rem;
   color: var(--purple);
   line-height: 1;

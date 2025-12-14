@@ -1,6 +1,7 @@
 +++
 date = 2025-12-07T02:57:52+08:00
 title = "about"
+description = "About azazel, who tf is this nerd - background, interest, skills, and achievements."
 noTitle = true
 +++
 

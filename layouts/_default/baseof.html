@@ -12,7 +12,7 @@
     ========================== -->
     <title>
       {{ if .IsHome }}
-        azazel
+        {{ .Title }}
       {{ else }}
         {{ .Title }}
       {{ end }}
@@ -32,7 +32,7 @@
     ========================== -->
     <meta property="og:type" content="website">
     <meta property="og:title"
-          content="{{ if .IsHome }}azazel{{ else }}{{ .Title }}{{ end }}">
+          content="{{ if .IsHome }}{{ else }}{{ .Title }}{{ end }}">
     <meta property="og:description"
           content="{{ .Params.description | default .Site.Params.description | default "Research notes and technical writing." }}">
     <meta property="og:image"

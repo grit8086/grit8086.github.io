@@ -6,28 +6,23 @@ noTitle = true
 +++
 
 # whoami
+Hey friend, I’m **Neswin**. I’ve been into cybersecurity since I was 7, and I love Offensive Security Research & Development.
 
-HALOOOO, I’m **Azazel**. My real name’s **Neswin**, but feel free to call me Az or Nes. I’ve been into cybersecurity since I was 7. My main interests are red teaming, malware & exploit development, OS internals, and Active Directory.
-
-Outside of infosec, I’m an advocate of self-improvement and mental health. When I’m not on my computer, I usually spend time training in combat sports to avoid being a stereotypically unhealthy nerd. I also enjoy watching K-dramas and romcoms (yes, judge me), making ASCII art, studying neuropsychology, and I really should explore more science and history.
-
+Outside of infosec, I care a lot about self-improvement and mental health. Offline, I train in combat sports, watch K-dramas and romcoms (yes, judge me), and dive into neuropsychology, science, and history.
 
 # speaking engagements
 - **HackTheBox Meetup** — How to Get Started in Cybersecurity  
 - **TenguCon** — Phishing and Social Engineering in the Wild
 
-
-# certifications / trainings
+# certifications/trainings
 - HackTheBox: Certified Penetration Testing Specialist  
 - HackTheBox: Pro Labs — Dante, Zephyr
-
 
 # contact
 GitHub: [jmp4zazel](https://github.com/jmp4zazel)
 
 # wall of credit
 I didn’t get here on my own. Everything I’ve learned so far is the result of people who took the time to help me, answer questions, challenge my thinking, and guide me through the rough parts of this field. I’m genuinely grateful for the patience, knowledge, and support they shared with me along the way.
-
 
 * @drpapv2
 * @cicadamikoto
@@ -63,6 +58,3 @@ I didn’t get here on my own. Everything I’ve learned so far is the result of
 * @seiferia
 * @sysgerm
 * @3lle
-
-
-

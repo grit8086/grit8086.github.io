@@ -9,7 +9,7 @@ tags = ["lowlevel"]
 I'm not an expert. I'm learning alongside you, and everything written here reflects how I currently understand the topic.  
 I'm learning by trying to teach others (often called the Feynman method).
 
-Why are you even learning this?
+# Why are you even learning this?
 I’m learning x86-64 assembly, so I need to refresh my understanding of numerical systems first. This is just part of a series, and I’ll be documenting everything I learn along the way. If you can’t explain what you’ve learned, then you don’t fully understand it.
   
 # The Number Systems

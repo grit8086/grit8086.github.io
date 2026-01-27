@@ -30,6 +30,7 @@
   --gray-white: #d0d0d0;
   --red: #bb0000;
   --real-red: #ff0000;
+  --soft-purple: #c9b6ff;
 
   /* Layout */
   --content-max: 60rem;
@@ -150,11 +151,14 @@ h1::before {
 }
 
 h2::before,
-h3::before,
 h4::before,
 h5::before,
 h6::before {
   color: var(--red);
+}
+
+h3::before {
+  color: var(--soft-purple);
 }
 
 h2::before { content: "## "     ; }

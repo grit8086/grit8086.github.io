@@ -19,14 +19,14 @@ On x86-32 systems, registers are **32 bits wide**, and there are only **8 genera
 Registers were not replaced over time, they were **extended**. Older registers still exist as sub-registers.
 
 ```
-+-------------------------------------------------------------+
-| Register | Width | Processor / Notes                        |
-+-------------------------------------------------------------+
-|  A       |  8    | Intel 8008                               |
-|  AX      | 16    | Intel 8086 ("A-extended")                |
-|  EAX     | 32    | Intel 80386                              |
-|  RAX     | 64    | x86-64 (AMD Opteron / Intel Pentium 4)   |
-+-------------------------------------------------------------+
+┌──────────┬────────┬────────────────────────────────────────┐
+│ Register │ Width  │ Processor / Notes                      │
+├──────────┼────────┼────────────────────────────────────────┤
+│ A        │  8-bit │ Intel 8008                             │
+│ AX       │ 16-bit │ Intel 8086 ("A-extended")              │
+│ EAX      │ 32-bit │ Intel 80386                            │
+│ RAX      │ 64-bit │ x86-64 (AMD Opteron / Intel P4+)       │
+└──────────┴────────┴────────────────────────────────────────┘
 ```
 
 ```

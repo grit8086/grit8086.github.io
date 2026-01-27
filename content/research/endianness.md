@@ -46,22 +46,24 @@ uint32_t x = 0xFEEDFACE;
 
 Logical value (no memory yet)
 ```
-   MSB                         LSB
-+--------+--------+--------+--------+
-|  0xFE  |  0xED  |  0xFA  |  0xCE  |
-+--------+--------+--------+--------+
+Most Significant Byte → Least Significant Byte
+
+   MSB                        LSB
+┌────────┬────────┬────────┬────────┐
+│  0xFE  │  0xED  │  0xFA  │  0xCE  │
+└────────┴────────┴────────┴────────┘
 ```
 
 ## BYTE ORDER IN MEMORY
 ```
-+----------------------------------+
-| Address | Big-Endian | Little-End |
-+----------------------------------+
-|  0x03   |    CE      |    FE      |
-|  0x02   |    FA      |    ED      |
-|  0x01   |    ED      |    FA      |
-|  0x00   |    FE      |    CE      |
-+----------------------------------+
+┌─────────┬────────────┬────────────────┐
+│ Address │ Big-Endian │  Little-Endian │
+├─────────┼────────────┼────────────────┤
+│  0x03   │    0xCE    │      0xFE      │
+│  0x02   │    0xFA    │      0xED      │
+│  0x01   │    0xED    │      0xFA      │
+│  0x00   │    0xFE    │      0xCE      │
+└─────────┴────────────┴────────────────┘
 ```
 Lower memory addresses are shown at the bottom.
 

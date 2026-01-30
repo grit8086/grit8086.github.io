@@ -63,7 +63,7 @@ body {
   background-color: var(--bg);
   color: var(--fg);
 
-  font-family: system-ui, monospace;
+  font-family: var(--font-mono);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
 

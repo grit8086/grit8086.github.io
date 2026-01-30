@@ -63,7 +63,7 @@ body {
   background-color: var(--bg);
   color: var(--fg);
 
-  font-family: var(--font-mono);
+  font-family: system-ui, monospace;
   font-size: var(--fs-body);
   line-height: var(--lh-body);
 
@@ -205,8 +205,7 @@ pre {
    ASCII / Banner
 ========================= */
 .banner {
-  white-mp(13px, 1.5vw, 14px);
-    }space: pre;
+  white-space: pre;
   font-weight: 700;
   margin-bottom: 0.75rem;
   overflow-x: hidden;
@@ -333,10 +332,6 @@ footer {
   body {
     padding: 1em;
     max-width: 720px;
-  }
-
-  html, body {
-    overflow-x: hidden;
   }
 
   .banner {

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- =========================
+         Basic Document Metadata
+    ========================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- =========================
+         Page Title
+    ========================== -->
+    <title>{{ .Title | default "404 · grit8086" }}</title>
+
+    <!-- =========================
+         Favicon
+    ========================== -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+
+    <!-- =========================
+         Open Graph / Embed Metadata
+    ========================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description"
+          content="{{ .Params.description | default .Site.Params.description | default "?" }}">
+    <meta property="og:image"
+          content="{{ .Params.ogImage | default .Site.Params.ogImage }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image"
+          content="{{ .Params.ogImage | default .Site.Params.ogImage }}">
+
+    <!-- =========================
+         Feeds
+    ========================== -->
+    {{ with .OutputFormats.Get "rss" }}
+    <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+    {{ end }}
+
+    <!-- =========================
+         Stylesheets
+    ========================== -->
+    {{ $style := resources.Get "css/style.css" | minify | fingerprint "md5" }}
+    {{ $chroma := resources.Get "css/chroma.css" | minify | fingerprint "md5" }}
+
+  <link rel="stylesheet"
+        href="{{ $style.Permalink }}"
+        integrity="{{ $style.Data.Integrity }}"
+        crossorigin>
+
+  <link rel="stylesheet"
+        href="{{ $chroma.Permalink }}"
+        integrity="{{ $chroma.Data.Integrity }}"
+        crossorigin>
+
+  </head>
+
+  <body id="top">
+    <!-- =========================
+         Header
+    ========================== -->
+    <header>
+      <div class="banner">
+        {{ partial "banner.html" . }}
+      </div>
+
+      <!-- Philosophy / Tagline -->
+      <p class="quote">
+        Obsess over every detail. Ask why it works. Ask why it isn’t built another way.
+      </p>
+
+      <!-- Navigation -->
+      <nav id="menu">
+        <a href="{{ "/" }}"
+           class="{{ if .IsHome }}active{{ end }}">
+          <span class="arrow">»</span> home
+        </a>
+
+        <a href="{{ "posts" | relURL }}"
+           class="{{ if eq .RelPermalink "posts/" }}active{{ end }}">
+          <span class="arrow">»</span> posts
+        </a>
+
+        <a href="{{ "tags" | relURL }}"
+           class="{{ if eq .Section "tags" }}active{{ end }}">
+          <span class="arrow">»</span> tags
+        </a>
+
+        <a href="{{ "about" | relURL }}"
+           class="{{ if eq .RelPermalink "/about/" }}active{{ end }}">
+          <span class="arrow">»</span> about
+        </a>
+      </nav>
+    </header>
+
+    <!-- =========================
+         Main Content
+    ========================== -->
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer>
+      <!-- intentionally empty; RSS is exposed via the <link rel="alternate"> in <head> -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+{{ define "main" }}
+  {{/*
+    Single content layout.
+
+    Responsibilities:
+    - Render page content
+    - Optionally render a title
+
+    Title behavior:
+    - Shown by default
+    - Suppressed when front matter sets: noTitle = true
+  */}}
+
+  <article>
+    <!--
+    {{ if not .Params.noTitle }}
+      <h2>{{ .Title }}</h2>
+    {{ end }}
+    -->
+
+    {{/*
+      Reading time, computed from Hugo's own word count.
+      Excluded on /about/ — it isn't an article to "read through."
+    */}}
+    {{ if ne .RelPermalink "/about/" }}
+    <p class="reading-time">{{ .ReadingTime }} min read</p>
+    {{ end }}
+
+    {{/*
+      Auto-generated TOC, shown on every post with more than
+      one heading. Built entirely from Hugo's own heading tree
+      — no markdown edited per post. Excluded on /about/, which
+      isn't a reference doc and doesn't need jump navigation.
+    */}}
+    {{ $tocCount := len (findRE "<li><a" .TableOfContents) }}
+    {{ $showToc := and (gt $tocCount 1) (ne .RelPermalink "/about/") }}
+    {{ if $showToc }}
+    <details class="toc" open>
+      <summary>TOC</summary>
+      {{ .TableOfContents }}
+    </details>
+    {{ end }}
+
+    {{ .Content }}
+
+    {{/* back-to-top, shown wherever the TOC also earns its keep */}}
+    {{ if $showToc }}
+    <p class="back-to-top"><a href="#top"><span class="arrow">»</span> top</a></p>
+    {{ end }}
+  </article>
+{{ end }}
+

@@ -1,0 +1,7 @@
+{{- $result := transform.HighlightCodeBlock . -}}
+{{- $lang := .Type -}}
+{{- if and $lang (ne $lang "plaintext") (ne $lang "text") (ne $lang "") -}}
+{{ replaceRE "^<div class=\"highlight\">" (printf "<div class=\"highlight\" data-lang=\"%s\">" $lang) $result.Wrapped | safeHTML }}
+{{- else -}}
+{{ $result.Wrapped }}
+{{- end -}}

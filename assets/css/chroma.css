@@ -1,0 +1,209 @@
+/* =========================
+   Chroma Tokens
+   (mapped from the gigglycat vim colorscheme —
+   deliberately near-monochrome, with exactly two
+   accents: red for numbers, purple for types)
+========================= */
+:root {
+  /* Foreground */
+  --ch-fg:        #bcbcbc; /* Normal */
+  --ch-fg-bright: #eeeeee; /* Keyword / Function / Operator / PreProc */
+  --ch-constant:  #d0d0d0; /* Constant / Variable */
+  --ch-string:    #8a8a8a; /* String */
+  --ch-comment:   #585858; /* Comment */
+
+  /* The only two accents */
+  --ch-red:       #ff0000; /* Number */
+  --ch-purple:    #be95ff; /* Type / Structure */
+
+  /* Error */
+  --ch-error-fg:  #eeeeee;
+  --ch-error-bg:  #870000;
+}
+
+/* =========================
+   Base
+========================= */
+.chroma {
+  color: var(--ch-fg);
+  background-color: transparent;
+  overflow-y: auto;
+}
+
+.chroma pre {
+  overflow: visible;
+}
+
+/* =========================
+   Scrollbars / Tables
+========================= */
+.chroma .lntable {
+  width: auto;
+  border: 0;
+  margin: 0;
+  display: block;
+  padding: 0;
+  border-spacing: 0;
+  overflow: auto;
+}
+
+/* the real <table> styling added for content tables (see
+   style.css) otherwise leaks into Chroma's own line-number/
+   code split table, since it has no cell-level reset of its own */
+.chroma .lntd {
+  border: none;
+  padding: 0;
+  vertical-align: top;
+}
+
+/* =========================
+   Line Numbers
+========================= */
+.chroma .lnt,
+.chroma .ln {
+  color: var(--ch-comment);
+  padding: 0 0.4em;
+  margin-right: 0.4em;
+  font-size: 0.75rem;
+}
+
+/* =========================
+   Errors
+========================= */
+.chroma .err {
+  color: var(--ch-error-fg);
+}
+
+/* =========================
+   Keywords / Control Flow
+   (Type keywords like `int`/`struct` are their own
+   category below — this is everything else: if/for/
+   return/function names/operators/preprocessor)
+========================= */
+.chroma .k,
+.chroma .kd,
+.chroma .kn,
+.chroma .kr,
+.chroma .kp,
+.chroma .nf,
+.chroma .nl,
+.chroma .ne,
+.chroma .o,
+.chroma .ow,
+.chroma .cpf {
+  color: var(--ch-fg-bright);
+}
+
+/* =========================
+   Types
+   (the single purple accent — type keywords and
+   class/struct names, nothing else)
+========================= */
+.chroma .kt,
+.chroma .nc {
+  color: var(--ch-purple);
+}
+
+/* =========================
+   Names / Identifiers
+========================= */
+.chroma .n,
+.chroma .na,
+.chroma .nb,
+.chroma .ni,
+.chroma .nx,
+.chroma .py,
+.chroma .bp,
+.chroma .x,
+.chroma .p {
+  color: var(--ch-fg);
+}
+
+/* =========================
+   Numbers / Literals
+========================= */
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .mo,
+.chroma .il {
+  color: var(--ch-red);
+}
+
+/* =========================
+   Strings / Data
+========================= */
+.chroma .s,
+.chroma .sb,
+.chroma .sc,
+.chroma .sd,
+.chroma .s1,
+.chroma .s2,
+.chroma .sx,
+.chroma .ss {
+  color: var(--ch-string);
+}
+
+/* Escapes / interpolation read as "special chars"
+   within a string — bright, same as keywords */
+.chroma .se,
+.chroma .sh,
+.chroma .sr,
+.chroma .si {
+  color: var(--ch-fg-bright);
+}
+
+/* =========================
+   Constants / Variables
+========================= */
+.chroma .no,
+.chroma .nv,
+.chroma .vc,
+.chroma .vg,
+.chroma .vi,
+.chroma .vm {
+  color: var(--ch-constant);
+}
+
+/* =========================
+   Comments / Whitespace
+========================= */
+.chroma .c,
+.chroma .ch,
+.chroma .cm,
+.chroma .c1,
+.chroma .cs,
+.chroma .go,
+.chroma .gp,
+.chroma .w {
+  color: var(--ch-comment);
+  font-style: italic;
+}
+
+/* =========================
+   Diff / Git
+========================= */
+.chroma .gd { color: var(--ch-comment); }
+.chroma .gi { color: var(--ch-fg-bright); }
+.chroma .gr {
+  color: var(--ch-error-fg);
+}
+
+.chroma .gh,
+.chroma .gu { color: var(--ch-fg); }
+
+.chroma .gs { font-weight: 700; }
+.chroma .gt { color: var(--ch-red); }
+.chroma .gl { text-decoration: underline; }
+
+/* =========================
+   Mobile
+========================= */
+@media (max-width: 768px) {
+  .chroma .lnt,
+  .chroma .ln {
+    font-size: 0.6rem;
+  }
+}

@@ -1,0 +1,26 @@
+baseURL = "https://grit8086.github.io"
+relativeURLs = true
+canonifyURLs = true
+languageCode = 'en-us'
+timeZone = "Asia/Manila"
+title = 'grit8086'
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    lineNumbersInTable = true
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
+    ordered = false
+
+[taxonomies]
+tag = "tags"
+
+[caches]
+  [caches.images]
+      dir = ':cacheDir/images'
+
+[params]
+  ogImage = "https://grit8086.github.io/img/banner.png"

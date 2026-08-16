@@ -1,0 +1,707 @@
+/* =========================
+   Font Face
+========================= */
+@font-face {
+  font-family: "Unifont";
+  src:
+    url("../fonts/unifont.woff2") format("woff2"),
+    url("../fonts/unifont.woff") format("woff");
+}
+
+/* =========================
+   Design Tokens (Single Source)
+========================= */
+:root {
+  /* Typography */
+  --font-mono: "Unifont", monospace;
+
+  --fs-root: 19px;
+  --fs-body: 1rem;
+  --fs-code: 0.9rem;
+
+  --lh-body: 1.6;
+  --lh-code: 1.5;
+
+  /* Colors */
+  --bg: #000000;
+  --fg: #ffffff;
+
+  --purple: #be95ff;
+  --white: #ffffff;
+  --gray-white: #d0d0d0;
+  --red: #ee0000; /* brightened from #bb0000 — that failed WCAG AA (3.1:1) on black for nav/heading text, this clears 4.5:1 */
+  --real-red: #ff0000;
+  --soft-purple: #c9b6ff;
+
+  /* Layout */
+  --content-max: 60rem;
+  --content-narrow: 60ch;
+
+  --pad-inline: 0.9rem;
+  --pad-body: 1em;
+
+  /* Effects */
+  --bg-overlay-opacity: 0.25;
+}
+
+/* =========================
+   Base Reset
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--fs-root);
+}
+
+/* =========================
+   Selection
+========================= */
+::selection {
+  background-color: var(--purple);
+  color: #050505;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+
+  font-family: var(--font-mono);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: var(--pad-body) 0;
+
+  position: relative;
+  padding-bottom: 10vh;
+}
+
+
+/* =========================
+   Layout
+========================= */
+header,
+main {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--pad-inline);
+}
+
+header {
+  display: grid;
+  place-items: center;
+}
+
+/* =========================
+   Typography
+========================= */
+p {
+  margin: 0.8em 0;
+}
+
+/* Horizontal rules are just blank spacing — no visible
+   line, the browser's default 3D inset rule removed */
+hr {
+  border: none;
+  margin: 2em 0;
+}
+
+strong {
+  color: var(--gray-white);
+  font-weight: 700;
+}
+
+em,
+i {
+  color: var(--gray-white);
+  font-weight: 600;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: 0.2em;
+}
+
+h1 { font-size: 1.2rem; }
+h2 { font-size: 1.1rem; }
+h3 { font-size: 1rem; }
+h4, h5, h6 { font-size: 0.95rem; }
+
+/* these posts use repeated H1s as flat "chapter" breaks
+   rather than nesting under H2 — just blank spacing between
+   them, no visible divider. First H1 (the post's own title)
+   gets less top margin since nothing precedes it. */
+article h1 {
+  margin-top: 2.5rem;
+}
+
+article h1:first-of-type {
+  margin-top: 0.2em;
+}
+
+h1::before {
+  content: "# ";
+  color: var(--purple);
+}
+
+h2::before,
+h4::before,
+h5::before,
+h6::before {
+  color: var(--red);
+}
+
+h3::before {
+  color: var(--soft-purple);
+}
+
+h2::before { content: "## "     ; }
+h3::before { content: "### "    ; }
+h4::before { content: "#### "   ; }
+h5::before { content: "##### "  ; }
+h6::before { content: "###### " ; }
+
+/* =========================
+   Lists
+   (plain browser bullets — .toc has its own
+   separate tree-style marker system, untouched)
+========================= */
+ul {
+  margin: 0.8em 0;
+  padding-left: 1.4rem;
+}
+
+li {
+  margin: 0.2em 0;
+}
+
+/* =========================
+   Links
+========================= */
+a {
+  color: var(--gray-white);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--red);
+}
+
+/* links leaving the site, flagged by the
+   render-link.html hook, not hand-authored */
+a.external::after {
+  content: " ↗";
+  font-size: 0.75em;
+  color: var(--red);
+}
+
+/* =========================
+   Scrollbar
+========================= */
+html {
+  scrollbar-color: var(--red) var(--bg);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 4px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--real-red);
+}
+
+/* =========================
+   Code
+========================= */
+code,
+pre {
+  font-family: var(--font-mono);
+  max-height: 40vh;
+  white-space: pre;
+}
+
+code {
+  font-size: 0.85rem;
+}
+
+/* inline `code` in prose, distinct from code blocks —
+   pre code keeps Chroma's own colors untouched */
+code:not(pre code) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--soft-purple);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  font-size: var(--fs-code);
+  line-height: var(--lh-code);
+  margin: 0.8em 0;
+}
+
+/* =========================
+   Code Block Chrome
+   (terminal window dressing on the
+   .highlight wrapper only, never on .chroma
+   syntax colors or inline `code`)
+========================= */
+.highlight {
+  position: relative;
+  margin: 1.2em 0;
+  padding-top: 1.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.highlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.7rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* language tag, set via the render-codeblock.html hook —
+   reuses the chrome-bar pseudo-element instead of needing
+   a third one (::after is already the window dots) */
+.highlight[data-lang]::before {
+  content: attr(data-lang);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.8rem;
+  box-sizing: border-box;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: lowercase;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  left: 0.7rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow:
+    1.05rem 0 0 0 var(--soft-purple),
+    2.1rem 0 0 0 var(--gray-white);
+}
+
+.highlight .chroma pre {
+  margin: 0;
+}
+
+/* =========================
+   Tables
+   (real <table> elements, styled as a drawn ASCII
+   grid via dashed borders instead of literal +/-/|
+   characters inside a codeblock — semantic and
+   reflow-friendly, no color, just structure)
+========================= */
+table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2em 0;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  padding: 0.4em 0.8em;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: var(--fg);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* =========================
+   Table of Contents
+   (auto-generated, gated by heading count
+   in single.html — see that template)
+========================= */
+.toc {
+  margin: 1.2em 0 1.6em;
+}
+
+.toc summary {
+  cursor: pointer;
+  color: var(--gray-white);
+  font-weight: 700;
+  list-style: none;
+}
+
+.toc summary::-webkit-details-marker {
+  display: none;
+}
+
+.toc summary::before {
+  content: "- $ ";
+  color: var(--red);
+}
+
+.toc[open] summary::before {
+  content: "- # ";
+}
+
+.toc nav {
+  margin-top: 0.6rem;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.toc > nav > ul {
+  padding-left: 0;
+}
+
+.toc li {
+  display: block;
+  margin: 0.15rem 0;
+}
+
+/* tree-style branch connectors for nested entries only —
+   top-level entries stay plain, like `tree`'s root */
+.toc ul ul {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  margin-left: 0.4rem;
+  padding-left: 0.9rem;
+}
+
+.toc li:last-child > ul {
+  border-left: none;
+}
+
+.toc li li::before {
+  content: "├─ ";
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.toc li li:last-child::before {
+  content: "└─ ";
+}
+
+.toc a {
+  font-size: 0.9rem;
+}
+
+/* =========================
+   ASCII / Banner
+========================= */
+.banner {
+  white-space: pre;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  overflow-x: hidden;
+  contain: layout paint;
+}
+
+.ascii {
+  font-family: var(--font-mono);
+ /* font-size: 2.0px; */
+  line-height: 1;
+  color: var(--real-red);
+}
+
+.base-title::before {
+  content: none;
+}
+
+/* =========================
+   Menu
+========================= */
+#menu a {
+  color: var(--white);
+  margin-right: 10px;
+}
+
+#menu a:hover,
+#menu a.active {
+  color: var(--red);
+}
+
+/* =========================
+   Arrows
+========================= */
+.arrow {
+  color: var(--fg); 
+} 
+
+/* =========================
+   Quotes
+========================= */
+.quote {
+  font-size: 0.85rem;
+  line-height: 1.25;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: var(--quote);
+  max-width: 40ch;
+  margin: 0.5rem auto 1rem;
+}
+
+/* =========================
+   Blog Meta
+========================= */
+
+.blogs {
+  list-style: none;
+  padding-left: 0;
+}
+
+.blog-item {
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  padding-left: 1.3rem;
+}
+
+.blog-item::before {
+  content: "»";
+  color: var(--fg);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.blog-item .blog-link {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.blog-date {
+  margin-left: 0.6rem;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  color: var(--gray-white);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* =========================
+   Article Meta
+========================= */
+.reading-time {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  color: var(--gray-white);
+  margin: -0.4em 0 1em;
+}
+
+.back-to-top {
+  margin-top: 2.5rem;
+}
+
+/* =========================
+   Category Filter
+========================= */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 0.8rem 0 1.2rem;
+  margin-left: 1rem;
+}
+
+/*
+.category-filter button {
+  all: unset;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-left: 0.4rem;
+
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.2;
+  padding: 0.15rem 0.4rem;
+
+  color: var(--pink);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: transparent;
+
+  position: relative;
+}
+
+.category-filter button:hover {
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+*/
+
+
+
+/* =========================
+   Atmosphere
+   (CRT scanline + vignette overlay, fixed,
+   click-through, purely decorative chrome)
+========================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: var(--bg-overlay-opacity);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 998;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+/* =========================
+   Glow
+   (chrome/accents only: banner, nav,
+   heading markers — never body text or code)
+========================= */
+.ascii {
+  text-shadow:
+    0 0 6px rgba(255, 0, 0, 0.6),
+    0 0 16px rgba(255, 0, 0, 0.3);
+}
+
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  text-shadow: 0 0 6px currentColor;
+}
+
+#menu a:hover,
+#menu a.active {
+  text-shadow: 0 0 6px rgba(187, 0, 0, 0.7);
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* =========================
+   Mobile
+========================= */
+@media (max-width: 768px) {
+  main {
+    max-width: var(--content-narrow);
+  }
+
+  html {
+    font-size: 12px;
+  }
+
+  body {
+    padding: 1em;
+    max-width: 720px;
+  }
+
+  .banner {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .ascii {
+    font-family: var(--font-mono);
+   /* font-size: 1.5px; */
+    line-height: 1;
+    color: var(--real-red);
+  }
+
+  /* Safari fix 
+   
+  .ascii {
+    font-size: 2.5px;
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+
+  body::before {
+    position: absolute;
+  }
+
+  */
+
+  pre,
+  code {
+    font-size: 0.9em;
+    line-height: 1.15;
+    overflow-x: auto;
+    max-width: 100%;
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0;
+  }
+
+ img {
+  max-width: 720px;
+  width: 100%;
+  height: auto;
+ }
+
+  ul li {
+    align-items: flex-start;
+  }
+
+  ul li::before {
+    margin-top: 0.35em;
+  }
+}
+

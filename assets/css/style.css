@@ -661,7 +661,7 @@ footer {
 
   .ascii {
     font-family: var(--font-mono);
-   /* font-size: 1.5px; */
+    font-size: 8px;
     line-height: 1;
     color: var(--real-red);
   }

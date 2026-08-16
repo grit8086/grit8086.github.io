@@ -19,10 +19,10 @@ This repository contains the source for my personal static site, where I keep no
 **Live site:** [grit8086.github.io](https://grit8086.github.io)
 
 ## Stack
-* **[Hugo](https://gohugo.io/)** — static site generator (extended)
-* **Custom theme** — completely hand-rolled, no third-party Hugo theme
-* **Chroma** — syntax highlighting, recolored to match the `gigglycat` Vim colorscheme
-* **GitHub Actions** — builds and deploys the site to GitHub Pages on every push to `main`
+* **[Hugo](https://gohugo.io/)** - static site generator (extended)
+* **Custom theme**               - completely hand-rolled, no third-party Hugo theme
+* **Chroma**                     -  syntax highlighting, recolored to match the `gigglycat` Vim colorscheme
+* **GitHub Actions**             - builds and deploys the site to GitHub Pages on every push to `main`
 
 ## Development
 ### Prerequisites

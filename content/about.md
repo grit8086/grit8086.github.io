@@ -1,7 +1,7 @@
 +++
 date = 2025-12-07T02:57:52+08:00
-title = "grit · about"
-description = "who the heck is grit? background, interest, skills, and achievements."
+title = "grit8086 · about"
+description = "who the heck is grit8086? background, interest, skills, and achievements."
 noTitle = true
 +++
 
